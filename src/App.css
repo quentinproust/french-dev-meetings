@@ -1,0 +1,39 @@
+@import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
+
+.App {
+  text-align: center;
+  font-family: 'Fira Code';
+}
+
+.leaflet-container {
+  font-family: 'Fira Code';
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 21vh;
+  padding-bottom: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-desc {
+  font-size: 1em;
+}
+
+.App-meetings-map .leaflet-container {
+  height: 79vh;
+  width: 100%;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
