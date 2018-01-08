@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Map, TileLayer, Marker } from 'react-leaflet';
-import MeetingPopup from './MeetingPopup';
+import { Map, TileLayer } from 'react-leaflet';
+import MeetingMarker from './MeetingMarker';
 
 export default function MeetingMap({
   style,
@@ -16,9 +16,7 @@ export default function MeetingMap({
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {meetings.map((m, index) => (
-        <Marker position={m.location} key={index}>
-          <MeetingPopup meeting={m} />
-        </Marker>
+        <MeetingMarker key={index} meeting={m} />
       ))}
     </Map>
   );
