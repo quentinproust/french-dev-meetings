@@ -5,7 +5,12 @@ import MeetingMap from '../MeetingMap';
 import logo from './logo.png';
 import './Home.css';
 
-export default function HomeTemplate({ position, meetings }) {
+export default function HomeTemplate({
+  position,
+  meetings,
+  pastConferencesFiltered,
+  onToggleFiltered,
+}) {
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +22,8 @@ export default function HomeTemplate({ position, meetings }) {
         <MeetingMap
           meetings={meetings}
           position={position}
+          pastConferencesFiltered={pastConferencesFiltered}
+          onToggleFiltered={onToggleFiltered}
         />
       </div>
     </div>
@@ -24,6 +31,8 @@ export default function HomeTemplate({ position, meetings }) {
 }
 
 HomeTemplate.propTypes = {
+  pastConferencesFiltered: PropTypes.bool.isRequired,
+  onToggleFiltered: PropTypes.func.isRequired,
   position: PropTypes.arrayOf(PropTypes.number).isRequired,
   meetings: PropTypes.arrayOf(PropTypes.shape({
     when: PropTypes.string.isRequired,

@@ -16,9 +16,13 @@ const pastMeetingIcon = icon({
 export default function MeetingMarker({
   meeting,
 }) {
-  const isPastMeeting = new Date(meeting.when) < new Date();
   return (
-    <Marker position={meeting.location} {...isPastMeeting ? { icon: pastMeetingIcon } : {}}>
+    <Marker
+      onClick={() => console.log('test')}
+      position={meeting.location}
+      zIndexOffset={meeting.isPastMeeting ? 0 : 100}
+      {...meeting.isPastMeeting ? { icon: pastMeetingIcon } : {}}
+    >
       <MeetingPopup meeting={meeting} opacity={100} />
     </Marker>
   );
