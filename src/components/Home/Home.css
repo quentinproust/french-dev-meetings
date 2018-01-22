@@ -1,12 +1,11 @@
 @import url(https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css);
 
-.App {
-  text-align: center;
+body {
   font-family: 'Fira Code';
 }
 
-.leaflet-container {
-  font-family: 'Fira Code';
+.App {
+  text-align: center;  
 }
 
 .App-logo {
