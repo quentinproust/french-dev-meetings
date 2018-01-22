@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { icon } from 'leaflet';
 import { Marker } from 'react-leaflet';
@@ -13,19 +13,34 @@ const pastMeetingIcon = icon({
   shadowSize: [41, 41],
 });
 
-export default function MeetingMarker({
-  meeting,
-}) {
-  return (
-    <Marker
-      onClick={() => console.log('test')}
-      position={meeting.location}
-      zIndexOffset={meeting.isPastMeeting ? 0 : 100}
-      {...meeting.isPastMeeting ? { icon: pastMeetingIcon } : {}}
-    >
-      <MeetingPopup meeting={meeting} opacity={100} />
-    </Marker>
-  );
+export default class MeetingMarker extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { modalOpen: false };
+  }
+
+  onOpenModal = () => {
+    this.setState({ modalOpen: true });
+  };
+
+  onCloseModal = () => {
+    this.setState({ modalOpen: false });
+  };
+
+  render() {
+    const { meeting } = this.props;
+
+    return (
+      <Marker
+        onClick={this.onOpenModal}
+        position={meeting.location}
+        zIndexOffset={meeting.isPastMeeting ? 0 : 100}
+        {...meeting.isPastMeeting ? { icon: pastMeetingIcon } : {}}
+      >
+        <MeetingPopup meeting={meeting} open={this.state.modalOpen} onClose={this.onCloseModal} />
+      </Marker>
+    );
+  }
 }
 
 MeetingMarker.propTypes = {

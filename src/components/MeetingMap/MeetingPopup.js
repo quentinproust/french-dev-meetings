@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Popup } from 'react-leaflet';
+import Modal from 'react-responsive-modal';
 
-export default function MeetingPopup({ meeting }) {
+export default function MeetingPopup({ meeting, open, onClose }) {
   return (
-    <Popup>
+    <Modal open={open} onClose={onClose}>
       <div className="meeting-map-popup">
         <h1 className="title">{meeting.title}</h1>
         <p className="date">{meeting.text_date}</p>
@@ -12,7 +12,7 @@ export default function MeetingPopup({ meeting }) {
         <p className="description">{meeting.description}</p>
         <a href={meeting.url} target="blank">Voir sur le site</a>
       </div>
-    </Popup>
+    </Modal>
   );
 }
 
@@ -26,4 +26,6 @@ MeetingPopup.propTypes = {
     description: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
   }).isRequired,
+  open: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };

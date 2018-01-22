@@ -10,6 +10,7 @@
     "react-dom": "^16.2.0",
     "react-leaflet": "^1.7.8",
     "react-leaflet-control": "^1.4.0",
+    "react-responsive-modal": "^2.0.0",
     "react-scripts": "1.0.17",
     "rimraf": "^2.6.2"
   },
